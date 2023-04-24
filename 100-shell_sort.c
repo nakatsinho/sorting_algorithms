@@ -1,44 +1,48 @@
 #include "sort.h"
 
 /**
- * shell_sort - function that sorts an array of integers in ascending order
- * using the shell sort algorithm
- * @array: pointer to the array to sort
- * @size: size of the array
- * Return: nothing void
+ * swap_ints - Swap two integers in an array.
+ * @a: The first integer to swap.
+ * @b: The second integer to swap.
  */
+void swap_ints(int *a, int *b)
+{
+	int tmp;
 
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+/**
+ * shell_sort - Sort an array of integers in ascending
+ *              order using the shell sort algorithm.
+ * @array: An array of integers.
+ * @size: The size of the array.
+ *
+ * Description: Uses the Knuth interval sequence.
+ */
 void shell_sort(int *array, size_t size)
 {
-	size_t cLoop1, cLoop2, tmp, interval = 0;
-	int valueToInsert;
+	size_t gap, i, j;
 
 	if (array == NULL || size < 2)
 		return;
 
-	while (interval <= size / 3)
-	{
-		interval = interval * 3 + 1;
-	}
+	for (gap = 1; gap < (size / 3);)
+		gap = gap * 3 + 1;
 
-	while (interval > 0)
+	for (; gap >= 1; gap /= 3)
 	{
-
-		for (cLoop1 = interval; cLoop1 < size; cLoop1++)
+		for (i = gap; i < size; i++)
 		{
-			valueToInsert = array[cLoop1];
-
-			cLoop2 = cLoop1;
-
-			while (cLoop2 > interval - 1 && array[cLoop2 - interval] >= valueToInsert)
+			j = i;
+			while (j >= gap && array[j - gap] > array[j])
 			{
-				tmp = array[cLoop2 - interval];
-				array[cLoop2 - interval] = array[cLoop2];
-				array[cLoop2] = tmp;
-				cLoop2 -= interval;
+				swap_ints(array + j, array + (j - gap));
+				j -= gap;
 			}
 		}
-		interval = (interval - 1) / 3;
 		print_array(array, size);
 	}
 }

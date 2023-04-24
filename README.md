@@ -1,72 +1,163 @@
-## Sorting algorithms & Big O
+# Sorting Algorithms
 
-<style>
-#algorithm_sort_resume tr:nth-child(1) td:nth-child(2), #algorithm_sort_resume tr:nth-child(1) td:nth-child(3), #algorithm_sort_resume tr:nth-child(1) td:nth-child(7) {background-color: rgba(0, 176, 82, 0.5); color: rgba(0, 176, 82, 1)}
-#algorithm_sort_resume tr:nth-child(1) td:nth-child(4) {background-color: rgba(218, 41, 28, 0.5); color: rgba(218, 41, 28, 1)}
-#algorithm_sort_resume tr:nth-child(1) td:nth-child(5), #algorithm_sort_resume tr:nth-child(1) td:nth-child(6), #algorithm_sort_resume tr:nth-child(1) td:nth-child(10) {background-color: rgba(255, 108, 47, 0.5); color: rgba(255, 108, 47, 1)}
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRztBz3thnxU2MZwqucC6GD-YnuzDLpXk9weg&usqp=CAU)
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE2x8GeiLD2O8kQMi_nu59o69xACZT2MhPuw&usqp=CAU)
 
-#algorithm_sort_resume tr:nth-child(2) td:nth-child(2), #algorithm_sort_resume tr:nth-child(2) td:nth-child(3), #algorithm_sort_resume tr:nth-child(2) td:nth-child(4), #algorithm_sort_resume tr:nth-child(2) td:nth-child(7) {background-color: rgba(218, 41, 28, 0.5); color: rgba(218, 41, 28, 1)}
-#algorithm_sort_resume tr:nth-child(2) td:nth-child(5) {background-color: rgba(0, 176, 82, 0.5); color: rgba(0, 176, 82, 1)}#algorithm_sort_resume tr:nth-child(3) td:nth-child(2), #algorithm_sort_resume tr:nth-child(3) td:nth-child(3), #algorithm_sort_resume tr:nth-child(3) td:nth-child(4), #algorithm_sort_resume tr:nth-child(3) td:nth-child(5), #algorithm_sort_resume tr:nth-child(3) td:nth-child(7) {background-color: rgba(218, 41, 28, 0.5); color: rgba(218, 41, 28, 1)}
-#algorithm_sort_resume tr:nth-child(2) td:nth-child(10) {background-color: rgba(255, 108, 47, 0.5); color: rgba(255, 108, 47, 1)}
-#algorithm_sort_resume tr:nth-child(3) td:nth-child(6) {background-color: rgba(0, 176, 82, 0.5); color: rgba(0, 176, 82, 1)}
-#algorithm_sort_resume tr:nth-child(3) td:nth-child(10) {background-color: rgba(255, 108, 47, 0.5); color: rgba(255, 108, 47, 1)}
-</style>
+### AIM :sunflower:
+- At least four different sorting algorithms
+- What is the Big O notation, and how to evaluate the time complexity of an algorithm
+- How to select the best sorting algorithm for a given input
+- What is a stable sorting algorithm
 
-## [Big O](https://en.wikipedia.org/wiki/Big_O_notation)
+## Tests :heavy_check_mark:
 
-> Big O notation is a mathematical notation that describes the limiting behavior of a function
+* [tests](./tests): Folder of test files. 
 
-## Sorting algorithm
+## Helper Files :raised_hands:
 
-### [Bubble sort](https://en.wikipedia.org/wiki/Bubble_sort)
+* [print_array.c](./print_array.c): C function that prints an array of integers. 
+* [print_list.c](./print_list.c): C function that prints a `listint_t` doubly-linked list. 
 
-![Bubble sort](https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif)
+## Header Files :file_folder:
 
-> compares adjacent elements and swaps them if they are in the wrong order
+* [sort.h](./sort.h): Header file containing definitions and prototypes for all types and functions written for the project.
 
-### [Insertion sort](https://en.wikipedia.org/wiki/Insertion_sort)
+Data Structure:
+```
+typedef struct listint_s
+{
+	const int n;
+	struct listint_s *prev;
+	struct listint_s *next;
+} listint_t;
+```
 
-![Insertion sort](https://upload.wikimedia.org/wikipedia/commons/4/42/Insertion_sort.gif)
+Function Prototypes:
 
->
+| File                       | Prototype                                         |
+| -------------------------- | ------------------------------------------------- |
+| `print_array.c`            | `void print_array(const int *array, size_t size)` |
+| `print_list.c`             | `void print_list(const listint_t *list)`          |
+| `0-bubble_sort.c`          | `void bubble_sort(int *array, size_t size);`      |
+| `1-insertion_sort_list.c`  | `void insertion_sort_list(listint_t **list);`     |
+| `2-selection-sort.c`       | `void selection_sort(int *array, size_t size);`   |
+| `3-quick_sort.c`           | `void quick_sort(int *array, size_t size);`       |
+| `100-shell_sort.c`         | `void shell_sort(int *array, size_t size);`       |
+| `101-cocktail_sort_list.c` | `void cocktail_sort_list(listint_t **list);`      |
+| `102-counting_sort.c`      | `void counting_sort(int *array, size_t size);`    |
+| `103-merge_sort.c`         | `void merge_sort(int *array, size_t size);`       |
+| `104-heap_sort.c`          | `void heap_sort(int *array, size_t size);`        |
+| `105-radix_sort.c`         | `void radix_sort(int *array, size_t size);`       |
+| `106-bitonic_sort.c`       | `void bitonic_sort(int *array, size_t size);`     |
+| `107-quick_sort_hoare.c`   | `void quick_sort_hoare(int *array, size_t size);` |
 
-### [Selection sort](https://en.wikipedia.org/wiki/Selection_sort)
+* [deck.h](./deck.h): Header file containing definitions and prototypes for all types and functions written for the task `1000-sort_deck.c`.
 
-![Selection sort](https://upload.wikimedia.org/wikipedia/commons/9/94/Selection-Sort-Animation.gif)
+Data Structures:
+```
+typedef enum kind_e
+{
+	SPADE = 0,
+	HEART,
+	CLUB,
+	DIAMOND
+} kind_t;
+typedef struct card_s
+{
+	const char *value;
+	const kind_t kind;
+} card_t;
+typedef struct deck_node_s
+{
+	const card_t *card;
+	struct deck_node_s *prev;
+	struct deck_node_s *next;
+} deck_node_t;
+```
 
-> The algorithm divides the input list into two parts: a sorted sublist of items which is built up from left to right at the front (left) of the list and a sublist of the remaining unsorted items that occupy the rest of the list.
+Function Prototype:
 
-### [Quick sort](https://en.wikipedia.org/wiki/Quicksort)
+| File               | Prototype                             |
+| ------------------ | ------------------------------------- |
+| `1000-deck_node.c` | `void sort_deck(deck_node_t **deck);` |
 
-![Quick sort](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Sorting_quicksort_anim.gif/220px-Sorting_quicksort_anim.gif)
+## Tasks :page_with_curl:
 
-### [Shell sort](https://en.wikipedia.org/wiki/Shellsort)
+* **0. Bubble sort**
+  * [0-bubble_sort.c](./0-bubble_sort.c): C function that sorts an array of integers in ascending order using the Bubble Sort algorithm.
+  * Prints the array after each swap.
+  * [0-O](./0-O): Text file containing the best, average, and worst case time complexities of the Bubble Sort algorithm, one per line.
 
-![Shell sort](https://upload.wikimedia.org/wikipedia/commons/d/d8/Sorting_shellsort_anim.gif)
+* **1. Insertion sort**
+  * [1-insertion_sort_list.c](./1-insertion_sort_list.c): C function that sorts a `listint_t` doubly-linked list of integers in ascending order using the
+  Insertion Sort algorithm.
+  * Prints the list after each swap.
+  * [1-O](./1-O): Text file containing the best, average, and worst case time complexities of the Insertion Sort algorithm, one per line.
 
-### [Cocktail shaker sort](https://en.wikipedia.org/wiki/Cocktail_shaker_sort)
+* **2. Selection sort**
+  * [2-selection_sort.c](./2-selection_sort.c): C function that sorts an array of integers in ascending order using the Selection Sort algorithm.
+  * Prints the array after each swap.
+  * [2-O](./2-O): Text file containing the best, average, and worst case time complexities of the Selection Sort algorithm, one per line.
 
-![Cocktail shaker sort](https://upload.wikimedia.org/wikipedia/commons/e/ef/Sorting_shaker_sort_anim.gif)
+* **3. Quick sort**
+  * [3-quick_sort.c](./3-quick_sort.c): C function that sorts an array of integers in ascending order using the Quick Sort algorithm.
+  * Implements the Lomuto partition scheme.
+  * Always uses the last element of the partition being sorted as the pivot.
+  * Prints the array after each swap.
+  * [3-O](./3-O): Text file containing the best, average, and worst case time complexities of the Quick Sort Lomuto Partition scheme algorithm, one per line.
 
-<div id="algorithm_sort_resume">
+* **4. Shell sort - Knuth Sequence**
+  * [100-shell_sort.c](./100-shell_sort.c): C function that sorts an array of integers in ascending order using the Shell sort algorithm.
+  * Implements the Knuth interval sequence.
+  * Prints the array each time the interval is decreased.
 
-### [Counting sort](https://en.wikipedia.org/wiki/Counting_sort)
+* **5. Cocktail shaker sort**
+  * [101-cocktail_sort_list.c](./101-cocktail_sort_list.c): C function that sorts
+  a `listint_t` doubly-linked list of integers in ascending order using the Cocktail Shaker Sort algorithm.
+  * Prints the list after each swap.
+  * [101-O](./101-O): Text file containing the best, average, and worst case time complexities of the Cocktail Shaker Sort algorithm, one per line.
 
-### [Merge sort](https://en.wikipedia.org/wiki/Merge_sort)
+* **6. Counting sort**
+  * [102-counting_sort.c](./102-counting_sort.c): C function that sorts an array of integers in ascending order using the Counting Sort algorithm.
+  * Assumes that the array will only contain numbers `>= 0`.
+  * Prints the counting array after it has been initialized.
+  * [102-O](./102-O): Text file containing the best, average, and worst case time complexities of the Counting Sort algorithm, one per line.
 
-### [Heap sort](https://en.wikipedia.org/wiki/Heapsort)
+* **7. Merge sort**
+  * [103-merge_sort.c](./103-merge_sort.c): C function that sorts an array of integers in ascending order using the Merge Sort algorithm.
+  * Implements the `top-down` Merge Sort algorithm.
+    * When an array is divided, the size of the left subarray is always less than or equal to the size of the right subarray.
+    * Always sorts the left subarray before the right one.
+  * Prints subarrays each time they are merged.
+  * [103-O](./103-O): Text file containing the best, average, and worst case time complexities of the Merge Sort algorithm, one per line.
 
-![Heap sort](https://upload.wikimedia.org/wikipedia/commons/1/1b/Sorting_heapsort_anim.gif)
+* **8. Heap sort**
+  * [104-heap_sort.c](./104-heap_sort.c): C function that sorts an array of integers in ascending order using the Heap Sort algorithm.
+  * Implements the `sift-down` Heap Sort algorithm.
+  * Prints the array after each swap.
+  * [104-O](./104-O): Text file containing the best, average, and worst case time complexiites of the Heap Sort algorithm, one per line.
 
-## Resume
+* **9. Radix sort**
+  * [105-radix_sort.c](./105-radix_sort.c): C function that sorts an array of integers in ascending order using the Radix Sort algorithm.
+  * Implements the Least-Significant-Digit (LSD) Radix Sort algorithm.
+  * Assumes that the array will only contain numbers `>= 0`.
+  * Prints the array for each significant digit increase.
+  * [105-O](./105-O): Text file containing the best, average, and worst case time complexities of the Radix Sort algorithm, one per line.
 
-|              | Bubble sort | Insertion sort | Selection sort | Quick sort | Shell sort | Cocktail shaker sort | Counting sort | Merge sort | Heap sort  |
-| ------------ | ----------- | -------------- | -------------- | ---------- | ---------- | -------------------- | ------------- | ---------- | ---------- |
-| Best case    | O(n)        | O(n)           | O(n^2)         | O(nlog(n)) | O(nlog(n)) | O(n)                 |               |            | O(nlog(n)) |
-| Average case | O(n^2)      | O(n^2)         | O(n^2)         | O(nlog(n)) |            | O(n^2)               |               |            | O(nlog(n)) |
-| Worst case   | O(n^2)      | O(n^2)         | O(n^2)         | O(n^2)     | O(n)       | O(n^2)               | O(n+k)        |            | O(nlog(n)) |
+* **10. Bitonic sort**
+  * [106-bitonic_sort.c](./106-bitonic_sort.c): C function that sorts an array of integers in ascending order using the Bitonic Sort algorithm.
+  * Assumes that `size` is a power of 2 (ie. `size` can be expressed as `2^k` where `k >= 0`).
+  * Prints subarrays each time they are merged.
+  * [106-O](./106-O): Text file containing the best, average, and worst case time complexities of the Bitonic Sort algorithm, one per line.
 
-</div>
+* **11. Quick Sort - Hoare Partition scheme**
+  * [107-quick_sort_hoare.c](./107-quick_sort_hoare.c): C function that sorts an array of integers in ascending order using the Quick Sort algorithm.
+  * Implements the Hoare partition scheme.
+  * Always uses the last elemement of the partition being sorted as the pivot.
+  * Prints the array after each swap.
+  * [107-O](./107-O): Text file containing the best, average, and worst case time complexities of the Quick Sort Hoare Partition cheme algorithm, one per line.
 
-( Green: best algorithm, Red: worst algorithm )
-# sorting_algorithms
+* **12. Dealer**
+  * [1000-sort_deck.c](./1000-sort_deck.c): C function that sorts a `deck_node_t` doubly-linked list deck of cards.
+  * Assumes that there are exactly `52` elements in the doubly-linked list.
+  * Orders the deck from spades to diamonds and from aces to kings.
