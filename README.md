@@ -1,16 +1,57 @@
 ## Sorting algorithms & Big O
 
 <style>
-#algorithm_sort_resume tr:nth-child(1) td:nth-child(2), #algorithm_sort_resume tr:nth-child(1) td:nth-child(3), #algorithm_sort_resume tr:nth-child(1) td:nth-child(7) {background-color: rgba(0, 176, 82, 0.5); color: rgba(0, 176, 82, 1)}
-#algorithm_sort_resume tr:nth-child(1) td:nth-child(4) {background-color: rgba(218, 41, 28, 0.5); color: rgba(218, 41, 28, 1)}
-#algorithm_sort_resume tr:nth-child(1) td:nth-child(5), #algorithm_sort_resume tr:nth-child(1) td:nth-child(6), #algorithm_sort_resume tr:nth-child(1) td:nth-child(10) {background-color: rgba(255, 108, 47, 0.5); color: rgba(255, 108, 47, 1)}
+#algorithm_sort_resume tr:nth-child(1) td:nth-child(2), 
+#algorithm_sort_resume tr:nth-child(1) td:nth-child(3), 
+#algorithm_sort_resume tr:nth-child(1) td:nth-child(7) {
+  background-color: rgba(0, 176, 82, 0.5);
+  color: rgba(0, 176, 82, 1)
+}
+#algorithm_sort_resume tr:nth-child(1) td:nth-child(4) {
+  background-color: rgba(218, 41, 28, 0.5);
+  color: rgba(218, 41, 28, 1)
+}
+#algorithm_sort_resume tr:nth-child(1) td:nth-child(5), 
+#algorithm_sort_resume tr:nth-child(1) td:nth-child(6), 
+#algorithm_sort_resume tr:nth-child(1) td:nth-child(10) {
+  background-color: rgba(255, 108, 47, 0.5);
+  color: rgba(255, 108, 47, 1)
+}
 
-#algorithm_sort_resume tr:nth-child(2) td:nth-child(2), #algorithm_sort_resume tr:nth-child(2) td:nth-child(3), #algorithm_sort_resume tr:nth-child(2) td:nth-child(4), #algorithm_sort_resume tr:nth-child(2) td:nth-child(7) {background-color: rgba(218, 41, 28, 0.5); color: rgba(218, 41, 28, 1)}
-#algorithm_sort_resume tr:nth-child(2) td:nth-child(5) {background-color: rgba(0, 176, 82, 0.5); color: rgba(0, 176, 82, 1)}#algorithm_sort_resume tr:nth-child(3) td:nth-child(2), #algorithm_sort_resume tr:nth-child(3) td:nth-child(3), #algorithm_sort_resume tr:nth-child(3) td:nth-child(4), #algorithm_sort_resume tr:nth-child(3) td:nth-child(5), #algorithm_sort_resume tr:nth-child(3) td:nth-child(7) {background-color: rgba(218, 41, 28, 0.5); color: rgba(218, 41, 28, 1)}
-#algorithm_sort_resume tr:nth-child(2) td:nth-child(10) {background-color: rgba(255, 108, 47, 0.5); color: rgba(255, 108, 47, 1)}
-#algorithm_sort_resume tr:nth-child(3) td:nth-child(6) {background-color: rgba(0, 176, 82, 0.5); color: rgba(0, 176, 82, 1)}
-#algorithm_sort_resume tr:nth-child(3) td:nth-child(10) {background-color: rgba(255, 108, 47, 0.5); color: rgba(255, 108, 47, 1)}
+#algorithm_sort_resume tr:nth-child(2) td:nth-child(2), 
+#algorithm_sort_resume tr:nth-child(2) td:nth-child(3), 
+#algorithm_sort_resume tr:nth-child(2) td:nth-child(4), 
+#algorithm_sort_resume tr:nth-child(2) td:nth-child(7) {
+  background-color: rgba(218, 41, 28, 0.5);
+  color: rgba(218, 41, 28, 1)
+}
+#algorithm_sort_resume tr:nth-child(2) td:nth-child(5) {
+  background-color: rgba(0, 176, 82, 0.5);
+  color: rgba(0, 176, 82, 1)
+}
+#algorithm_sort_resume tr:nth-child(2) td:nth-child(10) {
+  background-color: rgba(255, 108, 47, 0.5);
+  color: rgba(255, 108, 47, 1)
+}
+
+#algorithm_sort_resume tr:nth-child(3) td:nth-child(2), 
+#algorithm_sort_resume tr:nth-child(3) td:nth-child(3), 
+#algorithm_sort_resume tr:nth-child(3) td:nth-child(4), 
+#algorithm_sort_resume tr:nth-child(3) td:nth-child(5), 
+#algorithm_sort_resume tr:nth-child(3) td:nth-child(7) {
+  background-color: rgba(218, 41, 28, 0.5);
+  color: rgba(218, 41, 28, 1)
+}
+#algorithm_sort_resume tr:nth-child(3) td:nth-child(6) {
+  background-color: rgba(0, 176, 82, 0.5);
+  color: rgba(0, 176, 82, 1)
+}
+#algorithm_sort_resume tr:nth-child(3) td:nth-child(10) {
+  background-color: rgba(255, 108, 47, 0.5);
+  color: rgba(255, 108, 47, 1)
+}
 </style>
+
 
 ## [Big O](https://en.wikipedia.org/wiki/Big_O_notation)
 
